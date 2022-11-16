@@ -1,28 +1,22 @@
-var data = axios.get('http://127.0.0.1:8000/api/data').then(function(response){console.log(response.data);})
-data_one = data
-// console.log(data_one[0])
+var data = axios.get('http://127.0.0.1:8000/api/data').then(
+    function(response){
+    // console.log(response.data)
 
-console.log(data_one)
+    response.data.forEach(function (item, index) {
+        var data_json = JSON.stringify(item["student"])
+        console.log(data_json)
+      });
 
+    console.log(response.data)
+    var datax = JSON.stringify(response.data[0].student)
 
+    
+    // console.log(datax)
+    function Display() {
+        return <p> Tâche : {datax}</p>;
+      }
+      
+      const root = ReactDOM.createRoot(document.getElementById('display'));
+      root.render(<Display />);
 
-function process_array(array) {
-    var values_seen = {}; // for removing duplicates
-    for (var i = 0; i < array.length; i++) {
-        values_seen[array[i]["level"]] = true;
-    }
-    return Object.keys(values_seen);
-}
-
-
-
-
-
-// data_one.map(data => 
-//     <p>{data}</p>
-//     );
-
-// const myElement = <p>{data_one}</p>;
-
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(myElement);
+    })
