@@ -14,7 +14,10 @@ var data = axios.get('http://127.0.0.1:8000/api/data').then(
       }
       const root = ReactDOM.createRoot(document.getElementById('display'));
       root.render(<Display />);
+
 })
 
+
+// 
 
 
