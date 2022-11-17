@@ -1,22 +1,20 @@
 var data = axios.get('http://127.0.0.1:8000/api/data').then(
     function(response){
-    // console.log(response.data)
-
-    response.data.forEach(function (item, index) {
-        var data_json = JSON.stringify(item["student"])
-        console.log(data_json)
-      });
-
     console.log(response.data)
-    var datax = JSON.stringify(response.data[0].student)
 
-    
-    // console.log(datax)
+    let items = response.data
     function Display() {
-        return <p> Tâche : {datax}</p>;
+      let components = []
+      let id = []
+      for (let i in items) {
+        components.push(<p key={i}> Tâche : {items[i]['name']}</p>)
       }
       
+        return components;
+      }
       const root = ReactDOM.createRoot(document.getElementById('display'));
       root.render(<Display />);
+})
 
-    })
+
+
