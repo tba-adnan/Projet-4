@@ -52,11 +52,11 @@ class CrudClass extends React.Component {
           <input type="text" value={this.state.value} onChange={this.handleChange} />
         </label>
 
-        <input type="submit" class="btn btn-primary" value="Submit" />
+        <input type="submit" value="Submit" />
       </form>
     
     );
   }
 }
 
-ReactDOM.render(<CrudClass />, document.getElementById('root'))
+ReactDOM.render(<CrudClass/>, document.getElementById('root'))
