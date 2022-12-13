@@ -16,10 +16,8 @@ use App\Http\Controllers\apiController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {return $request->user();});
 
 
 Route::get('data',[apiController::class,'index']);
-Route::post('insert',[apiController::class,'store']);
+Route::post('insert',[apiController::class,'store']); 

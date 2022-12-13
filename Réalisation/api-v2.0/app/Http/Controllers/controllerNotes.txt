@@ -1,0 +1,5 @@
+TODO : 
+
+- Seeders
+- Concerned tables
+- Proper migration
