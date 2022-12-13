@@ -10,19 +10,24 @@ class Task extends React.Component{
         this.setState({Task:res.data})
     }
 
-
     deleteTask = (id)=>{
         const res = axios.delete(`http://127.0.0.1:8000/api/task/delete/${id}`)
     }
-
 
 
     addTask =(e)=> {
     e.preventDefault();
         console.log('ok')
        const res = axios.post('http://127.0.0.1:8000/api/task/store',this.state).then(res=>{
-        window.location.reload();
-       })}
+      
+       axios.get('http://127.0.0.1:8000/api/task').then(res=>{
+        this.setState({Task:res.data})
+    // this.render()
+    })
+
+       })
+    
+    }
    
        
     handeleInput=(e)=>{
@@ -42,14 +47,14 @@ class Task extends React.Component{
                 name:res.data.name,
                 id:res.data.id
             })
-            // alert('good')
         })
     }
-    updateTask=()=>{
-        let id_task = this.state.id
-        const res = axios.put(`http://127.0.0.1:8000/api/task/update/${id_task}`,this.state)
-        
 
+
+
+    updateTask=()=>{
+        // let id_task = this.state.id
+        const res = axios.put(`http://127.0.0.1:8000/api/task/update/${id_task}`,this.state.id)
     }
 
    

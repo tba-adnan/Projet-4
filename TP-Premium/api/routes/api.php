@@ -21,8 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 // Route::resource('task',TaskController::class);
-Route::get('task',[TaskController::class,'index']);
-Route::get('task/{id}',[TaskController::class,'show']);
-Route::post('task/store',[TaskController::class,'store']);
-Route::put('task/update/{id}',[TaskController::class,'update']);
-Route::delete('task/delete/{id}',[TaskController::class,'destroy']);
+Route::get('v1/task',[TaskController::class,'index']);
+Route::get('v1/task/{id}',[TaskController::class,'show']);
+Route::post('v1/task/store',[TaskController::class,'store']);
+Route::put('v1/task/update/{id}',[TaskController::class,'update']);
+Route::delete('v1/task/delete/{id}',[TaskController::class,'destroy']);
