@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class apiModel extends Model
+
 {
     use HasFactory;
     protected $table = 'students'; 
-    protected $fillable = ['name']; 
+    protected $fillable = ['name'];
 }
