@@ -16,17 +16,12 @@ render(){
  
   return(
     <div className="">
-      
-      {/* <BrowserRouter>
-      <Routes>
-{ ["dashbord","dashbord/:id"].map(value=><Route key={Math.random()} path={value} element={<Dashbord />}></Route>)}
-        <Route path='/' element={<Login />}></Route>
-
-      </Routes>
-      </BrowserRouter> */}
+      <Dashbord/>
         
     </div>
   );
+
+  
 }
 }
 
