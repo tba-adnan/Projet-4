@@ -8,6 +8,7 @@ class Task extends React.Component{
     async componentDidMount(){
         const res = await axios.get('http://127.0.0.1:8000/api/task')
         this.setState({Task:res.data})
+        console.log(res.data)
     }
 
     deleteTask = (id)=>{
