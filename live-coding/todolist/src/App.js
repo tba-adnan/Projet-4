@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import axios from 'axios';
 import logo from './logo.svg';
 import './Styles.css';
-import ADD from './component/add'; 
 
 class Task extends React.Component {
   constructor(props) { 
@@ -39,8 +38,6 @@ class App extends React.Component {
   async componentDidMount(){
     const res = await axios.get('http://127.0.0.1:8000/api/task')
     this.setState({tasksArray:res.data})
-    // console.log(res.data)
-    // console.log(this.state.tasksArray)
 }
 
 
@@ -53,15 +50,14 @@ class App extends React.Component {
        const res = axios.post('http://127.0.0.1:8000/api/task/store', task).then(res=>{
        axios.get('http://127.0.0.1:8000/api/task').then(res=>{
         this.setState({tasksArray:res.data})
-     // this.render()
     })
        })
     
     }
 
-  removeTask(i) {
-        const res = axios.delete(`http://127.0.0.1:8000/api/task/delete/${i}`)
-  }
+  // removeTask(i) {
+  //       const res = axios.delete(`http://127.0.0.1:8000/api/task/delete/${i}`)
+  // }
 
 
   deleteTask = (id)=>{
@@ -90,7 +86,6 @@ class App extends React.Component {
   }
 
   onChangeInput(e) {
-    // this.setState({value: e.target.value})
   }
 
   render() {
@@ -99,9 +94,6 @@ class App extends React.Component {
         <Task 
           key={i}
           value={task.value}
-          // done={task.done}
-          onClickClose={this.removeTask.bind(this, i)}
-          onClickTask={this.markDone.bind(this, i)}
         />
       )
     })
@@ -110,12 +102,11 @@ class App extends React.Component {
       <div className="container">
         <div className="row">
           <div className="col-sm-6 col-sm-offset-3">
-            <h1> Tâches à faire</h1>
+            <h1>Tâches à faire : </h1>
             <form action="" onSubmit={this.addTask}>
                     task : <input name='name' value={this.state.name} type="text" 
                     onInput={(e) => this.setState({taskName: e.target.value})}  />
                     <button type='submit'>add</button>
-                    {/* <button type='submit' onClick={this.updateTask}>update</button> */}
                 </form>
 
 <h3>Tasks : </h3>
@@ -129,12 +120,12 @@ class App extends React.Component {
 </td>
 </tr>
 )}
-                                     
-                    </tbody>
-                </table>
-          </div>
-        </div>
-      </div>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
     )
   }
 }
